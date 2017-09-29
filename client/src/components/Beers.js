@@ -1,9 +1,16 @@
 import React from 'react';
 
-const Beers = () => {
-  <div>
-    Beers Component
-  </div>
+class Beers extends React.Component {
+  
+  // write call beers function
+  
+  render() {
+    return(
+      <div>
+        Beers Component
+      </div>
+    )
+  }
 }
 
 export default Beers;

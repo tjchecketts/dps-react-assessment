@@ -5,6 +5,7 @@ import Flash from './Flash';
 import Home from './Home';
 import { Switch, Route } from 'react-router-dom';
 import { Segment } from 'semantic-ui-react';
+import Beers from '../components/Beers';
 
 class App extends Component {
   render() {
@@ -25,6 +26,8 @@ class App extends Component {
 const styles = {
   background: {
     backgroundColor: 'black',
+    // adding color temporarily to see what's working
+    color: 'white'
   },
 }
 
