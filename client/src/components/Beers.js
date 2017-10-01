@@ -3,48 +3,52 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { Card, Image, Divider } from 'semantic-ui-react';
 
-let { id, name, images = {} } = brewery;
-
 class Beers extends React.Component {
-  state = brewery_db.beers.all
-  // write call beers function
-  componentDidMount() {
-    axios.get('/api/all_beers')
-      .then (res => {this.setState({ beers: res.data })}
-    )
-      .catch( error => {
-        console.log(error.response);
-    });
-  }
+  constructor() {
+    super();
+    this.state = {
+      beers: [],
+    }}
 
-  show = () => {
-    <div>
-      {this.state.beers.map( b =>
-        <div> key={b.id}>
-          <Link to={`beers/${b.id}`}>
-            {b.name}
-            {' '}
-          </Link>
-        </div>
-      )}
-    </div>
-  }
+  // bring in data from api
+  componentDidMount() {
+    fetch('http://api.brewerydb.com/v2/?results=50')
+    .then (results => {
+      return results.json();
+    })
+    .then(data => {
+      let beers = data.results.map((beers) => {
+        return(
+          <div key={beers.results}>
+          </div>
+        )
+      })
+      .catch( e => console.log(e.response.data.errors))
+      this.setState({ beers: beers });
+      console.log("state", this.state.beers);
+    })
+  };
+
+  // show = () => {
+  //   <div>
+  //     {/* {this.state.beers.map( b =>
+  //       <div> key={b.id}>
+  //         <Link to={`beers/${b.id}`}>
+  //           {b.name}
+  //           {' '}
+  //         </Link>
+  //       </div>
+  //     )} */}
+  //   </div>
+  // }
 
   render() {
-    const { showForm } = this.state;
-    let { beers } = this.state;
-    
     return(
       <div>
-        {this.state.all_beers.map( b =>
-        <div> key={b.id}>
-            {b.name}
-            {' '}
-        </div>
-      )}
+        Beers component
+        {this.state.beers}
       </div>
-    )
-  }
+    )}
 }
 
 export default Beers;

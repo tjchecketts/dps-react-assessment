@@ -1,3 +1,9 @@
+start: 10/1 4 PM
+  read more files about calling API data
+  tried a bunch of different calls
+  continuing to get mapping and fetching errors
+stop: 10/1 5:15 PM
+
 start: 10/1 10 AM
   set up show info on beers
   learned that our db is online
