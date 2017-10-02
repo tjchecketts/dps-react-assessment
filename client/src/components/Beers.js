@@ -12,15 +12,17 @@ class Beers extends React.Component {
 
   // bring in data from api
   componentDidMount() {
-    fetch('http://api.brewerydb.com/v2/?results=50')
-    .then (results => {
-      return results.json();
-    })
-    .then(data => {
-      let beers = data.results.map((beers) => {
-        return(
-          <div key={beers.results}>
-          </div>
+    // error message: "No 'Access-Control-Allow-Origin'"
+    let proxyUrl = 'https://cors-anywhere.herokuapp.com/',
+        targetUrl = 'http://api.brewerydb.com/v2/?results=50'
+    fetch(proxyUrl + targetUrl)
+      .then(results => {
+        return results.json();
+      }).then(data => {
+        let beers = data.results.map((beer) => {
+          return(
+            <div key={beer.results}>
+            </div>
         )
       })
       .catch( e => console.log(e.response.data.errors))

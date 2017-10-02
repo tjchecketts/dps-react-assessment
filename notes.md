@@ -1,3 +1,9 @@
+start: 10/1 8 PM
+  read into no access allowed error
+    https://stackoverflow.com/questions/43262121/trying-to-use-fetch-and-pass-in-mode-no-cors
+  added proxyURL to beers component
+stop:  8:45 PM
+
 start: 10/1 4 PM
   read more files about calling API data
   tried a bunch of different calls
